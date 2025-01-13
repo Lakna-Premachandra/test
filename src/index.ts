@@ -1,8 +1,11 @@
 import express, { Request, Response } from 'express';
 import supabase from './superbaseClient';  // Import the Supabase client
+import cors from 'cors'; 
 
 const app = express();
 const port = 3000;
+
+app.use(cors());
 
 // GET endpoint to fetch data from Supabase table
 app.get('/api/projects', async (req: Request, res: Response) => {
