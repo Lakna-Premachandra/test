@@ -13,8 +13,7 @@ app.get('/api/projects', async (req: Request, res: Response) => {
   try {
     // Fetch data from the 'products' table
     const { data, error } = await supabase
-      .from('projects')  // The table you want to query
-      .select('*');      // Select all columns
+    .rpc('get_project_details'); //call sp
 
     if (error) {
       res.status(400).json({ message: 'Error fetching data', error });
